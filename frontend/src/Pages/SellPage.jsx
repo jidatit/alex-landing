@@ -18,7 +18,12 @@ const SellPage = () => {
         form.resetFields();
       };
 
+
+      const residentialOptions = ['1BHK', '2BHK', '3BHK'];
+      const mixUseOptions = ['1BHK', '2BHK', '3BHK'];
+      const multiFamilyOptions = ['yes', 'no'];
   return (
+
     
     <div className="relative min-h-screen ">
     {/* Navbar */}
@@ -49,9 +54,11 @@ const SellPage = () => {
           <Select 
            className="min-h-[50px]  font-poppins "
           placeholder="Residential">
-            <Option value="1BHK">1 BHK</Option>
-            <Option value="2BHK">2 BHK</Option>
-            <Option value="3BHK">3 BHK</Option>
+            {residentialOptions.map((option, index) => (
+        <Option key={index} value={option}>
+           {option}
+          </Option>
+          ))}
           </Select>
         </Form.Item>
 
@@ -62,9 +69,11 @@ const SellPage = () => {
           <Select
            className="min-h-[50px]  font-poppins"
             placeholder="Mix Use" >
-          <Option value="1BHK">1 BHK</Option>
-            <Option value="2BHK">2 BHK</Option>
-            <Option value="3BHK">3 BHK</Option>
+           {mixUseOptions.map((option, index) => (
+         <Option key={index} value={option}>
+           {option}
+         </Option>
+       ))}
           </Select>
         </Form.Item>
 
@@ -76,8 +85,11 @@ const SellPage = () => {
           
           <Select  className="min-h-[50px]  font-poppins"
           placeholder="Multi Family">
-            <Option value="yes">Yes</Option>
-            <Option value="no">No</Option>
+            {multiFamilyOptions.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
           </Select>
         </Form.Item>
         {/* Submit Button */}

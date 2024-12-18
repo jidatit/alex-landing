@@ -14,6 +14,12 @@ const BuyPage = () => {
     alert("Form submitted successfully!");
         form.resetFields();
   };
+    
+  const apartmentSize = ['1BHK', '2BHK', '3BHK'];
+  const prequalified = ['1BHK', '2BHK', '3BHK'];
+  const neighbourHood = ['1BHK', '2BHK', '3BHK'];
+   const familySize = ['7', '2', '3'];
+
   return (
     <div className="relative min-h-screen">
     {/* Navbar */}
@@ -42,9 +48,11 @@ const BuyPage = () => {
           <Select placeholder="Price Range"
           className="min-h-[50px]  font-poppins"
           >
-            <Option value="1BHK">1 BHK</Option>
-            <Option value="2BHK">2 BHK</Option>
-            <Option value="3BHK">3 BHK</Option>
+            {apartmentSize.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
           </Select>
         </Form.Item>
 
@@ -54,8 +62,11 @@ const BuyPage = () => {
          rules={[{ required: true }]}>
           <Select placeholder="Are You Pre qualified"
           className="min-h-[50px]  font-poppins">
-            <Option value="yes">Yes</Option>
-            <Option value="no">No</Option>
+              {prequalified.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
           </Select>
         </Form.Item>
 
@@ -65,9 +76,11 @@ const BuyPage = () => {
         rules={[{ required: true }]}>
           <Select placeholder="Neighborhood"
           className="min-h-[50px]  font-poppins" >
-          <Option value="1BHK">1 BHK</Option>
-            <Option value="2BHK">2 BHK</Option>
-            <Option value="3BHK">3 BHK</Option>
+          {neighbourHood.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
           </Select>
         </Form.Item>
 
@@ -76,9 +89,11 @@ const BuyPage = () => {
         className="mb-3  font-poppins" rules={[{ required: true }]}>
           <Select placeholder="Units" 
           className="min-h-[50px]  font-poppins">
-          <Option value="1BHK">1 BHK</Option>
-            <Option value="2BHK">2 BHK</Option>
-            <Option value="3BHK">3 BHK</Option>
+            {familySize.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
           </Select>
         </Form.Item>
 

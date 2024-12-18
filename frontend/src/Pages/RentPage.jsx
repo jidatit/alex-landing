@@ -17,6 +17,14 @@ const RentPage = () => {
     form.resetFields();
   };
 
+
+  const apartmentSize = ['1BHK', '2BHK', '3BHK'];
+  const AnnualIncome = ['1BHK', '2BHK', '3BHK'];
+  const neighbourHood = ['1BHK', '2BHK', '3BHK'];
+  const voucher = ['yes', 'no'];
+   const creditScore = ['1BHK', '2BHK', '3BHK'];
+   const familySize = ['7', '2', '3'];
+
   return (
     <div className="relative min-h-screen">
       {/* Navbar */}
@@ -48,9 +56,11 @@ const RentPage = () => {
            >
             <Select placeholder="Apartment Size"
              className="min-h-[50px]  font-poppins">
-              <Option value="1BHK">1 BHK</Option>
-              <Option value="2BHK">2 BHK</Option>
-              <Option value="3BHK">3 BHK</Option>
+             {apartmentSize.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
             </Select>
           </Form.Item>
 
@@ -60,9 +70,11 @@ const RentPage = () => {
           rules={[{ required: true }]}>
             <Select placeholder="Annual Income"
             className="min-h-[50px]  font-poppins" >
-            <Option value="1BHK">1 BHK</Option>
-              <Option value="2BHK">2 BHK</Option>
-              <Option value="3BHK">3 BHK</Option>
+              {AnnualIncome.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
             </Select>
           </Form.Item>
 
@@ -72,8 +84,11 @@ const RentPage = () => {
            rules={[{ required: true }]}>
             <Select placeholder="Vouchers"
             className="min-h-[50px]  font-poppins">
-              <Option value="yes">Yes</Option>
-              <Option value="no">No</Option>
+                {voucher.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
             </Select>
           </Form.Item>
 
@@ -83,9 +98,11 @@ const RentPage = () => {
            rules={[{ required: true }]}>
             <Select placeholder="Credit Score"
             className="min-h-[50px]  font-poppins" >
-            <Option value="1BHK">1 BHK</Option>
-              <Option value="2BHK">2 BHK</Option>
-              <Option value="3BHK">3 BHK</Option>
+              {creditScore.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
             </Select>
           </Form.Item>
 
@@ -110,9 +127,11 @@ const RentPage = () => {
           >
             <Select placeholder="Neighborhood" 
             className="min-h-[50px]  font-poppins">
-            <Option value="1BHK">1 BHK</Option>
-              <Option value="2BHK">2 BHK</Option>
-              <Option value="3BHK">3 BHK</Option>
+                 {neighbourHood.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
             </Select>
           </Form.Item>
 
@@ -122,9 +141,11 @@ const RentPage = () => {
            rules={[{ required: true }]}>
             <Select placeholder="Family Size"
              className="min-h-[50px]  font-poppins" >
-            <Option value="1BHK">1 BHK</Option>
-              <Option value="2BHK">2 BHK</Option>
-              <Option value="3BHK">3 BHK</Option>
+             {familySize.map((option, index) => (
+        <Option key={index} value={option}>
+          {option}
+        </Option>
+      ))} 
             </Select>
           </Form.Item>
 
@@ -141,6 +162,11 @@ const RentPage = () => {
           </Form.Item>
         </Form>
       </div>
+
+
+
+
+
 
 
          {/* Bottom Images */}

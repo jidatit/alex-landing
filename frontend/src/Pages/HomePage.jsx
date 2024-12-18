@@ -16,7 +16,9 @@ const HomePage = () => {
   className="absolute top-0 left-0 w-full h-full  sm:bg-[top_-90px_left_-90px] md:bg-[top_-56px_left_-550px]  lg:bg-[top_0px_left_0px]  xl:bg-[top_0px_left_0px] " 
   style={{
     backgroundImage: `url(${hello})`,
-    // backgroundSize: 'cover',
+    backgroundSize: 'cover',
+   
+    
     zIndex: -1,
   }}
 ></div>
