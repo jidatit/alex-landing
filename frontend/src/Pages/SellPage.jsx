@@ -25,7 +25,7 @@ const SellPage = () => {
     <Navbar />
 
     {/* Form Section */}
-    <div className="flex flex-col items-center justify-center mt-[43px]">
+    <div className="flex flex-col items-center justify-center mt-[43px]  ">
       <h1 className="text-3xl font-bold font-poppins mb-[24px] " style={{ color: "#1F4B43" }}>
         Sell Now!
       </h1>
@@ -39,15 +39,15 @@ const SellPage = () => {
         form={form} 
         layout="vertical"
         onFinish={onFinish}
-        className=" w-full max-w-md  font-poppins"
+        className=" w-full max-w-md font-poppins px-4"
        
       >
         {/* Apartment Size */}
         <Form.Item name="residential"
-        className="mb-3  font-poppins"
+        className="mb-3 ont-poppins"
          rules={[{ required: true }]}>
           <Select 
-           className="min-h-[50px]  font-poppins"
+           className="min-h-[50px]  font-poppins "
           placeholder="Residential">
             <Option value="1BHK">1 BHK</Option>
             <Option value="2BHK">2 BHK</Option>
@@ -96,7 +96,8 @@ const SellPage = () => {
 
 
       {/* Bottom Images */}
-      <div className="absolute bottom-0 right-0 w-1/5">
+      {/* <div className="absolute bottom-0 right-0 w-1/5"> */}
+      <div className="absolute bottom-0 right-0 w-1/5 sm:w-1/4 md:w-1/6 lg:w-1/8">
       <img
         src={home1}
         alt="house illustration"
@@ -104,7 +105,8 @@ const SellPage = () => {
       />
     </div>
 
-    <div className="absolute bottom-0 left-0 w-1/5">
+    {/* <div className="absolute bottom-0 left-0 w-1/5"> */}
+    <div className="absolute bottom-0 left-0 w-1/5 sm:w-1/4 md:w-1/6 lg:w-1/8">
       <img
         src={home2}
         alt="house illustration"

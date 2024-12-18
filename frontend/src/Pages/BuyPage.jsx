@@ -33,7 +33,7 @@ const BuyPage = () => {
       form={form}
         layout="vertical"
         onFinish={onFinish}
-        className=" w-full max-w-md  font-poppins"
+        className=" w-full max-w-md  font-poppins px-4"
       >
         {/* Apartment Size */}
         <Form.Item name="PriceRange"
@@ -97,7 +97,8 @@ const BuyPage = () => {
     </div>
 
     {/* Bottom Images */}
-    <div className="absolute bottom-0 right-0 w-1/5">
+    {/* <div className="absolute bottom-0 right-0 w-1/5"> */}
+    <div className="absolute bottom-0 right-0 w-1/5 sm:w-1/4 md:w-1/6 lg:w-1/8">
       <img
         src={home1}
         alt="house illustration"
@@ -105,7 +106,8 @@ const BuyPage = () => {
       />
     </div>
 
-    <div className="absolute bottom-0 left-0 w-1/5">
+    {/* <div className="absolute bottom-0 left-0 w-1/5"> */}
+    <div className="absolute bottom-0 left-0 w-1/5 sm:w-1/4 md:w-1/6 lg:w-1/8">
       <img
         src={home2}
         alt="house illustration"
