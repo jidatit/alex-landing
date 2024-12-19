@@ -32,7 +32,7 @@ const BuyPage = () => {
       <p className=" text-center font-poppins" style={{ color: "#1F4B43" }}>
       Find Your Dream Apartment—Tailored To Your Budget, Size, and Location. Start Your Journey To
       </p>
-      <p className=" text-center mb-[36px] font-poppins" style={{ color: "#1F4B43" }}>Ownership Today!</p>
+      <p className="text-center mb-[36px] font-poppins" style={{ color: "#1F4B43" }}>Ownership Today!</p>
 
       {/* Form */}
       <Form
