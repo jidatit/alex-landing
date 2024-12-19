@@ -113,7 +113,7 @@ const BuyPage = () => {
 
     {/* Bottom Images */}
     {/* <div className="absolute bottom-0 right-0 w-1/5"> */}
-    <div className="absolute bottom-0 right-0 w-1/5 sm:w-1/4 md:w-1/6 lg:w-1/8">
+    <div className="absolute bottom-0 right-0 z-[-1] w-2/4 md:w-1/4 lg:w-1/6">
       <img
         src={home1}
         alt="house illustration"
@@ -122,7 +122,7 @@ const BuyPage = () => {
     </div>
 
     {/* <div className="absolute bottom-0 left-0 w-1/5"> */}
-    <div className="absolute bottom-0 left-0 w-1/5 sm:w-1/4 md:w-1/6 lg:w-1/8">
+    <div className="absolute bottom-0 left-0 z-[-1] w-2/4 md:w-1/4 lg:w-1/6">
       <img
         src={home2}
         alt="house illustration"

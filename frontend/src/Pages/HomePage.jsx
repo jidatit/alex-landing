@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Components/NavBar";
 import PropertyCard from "../Components/PropertyCard";
 import hello from "../Assets/hello.png";
@@ -8,20 +8,35 @@ import { AiFillHome } from "react-icons/ai";
 import { FaKey, FaTag } from "react-icons/fa";
 
 const HomePage = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className="relative min-h-screen">
 
 
 <div
-  className="absolute top-0 left-0 w-full h-full  sm:bg-[top_-90px_left_-90px] md:bg-[top_-56px_left_-550px]  lg:bg-[top_0px_left_0px]  xl:bg-[top_0px_left_0px] " 
+  className="absolute top-0 left-0 w-full h-full sm:bg-[bottom_0px_left_-90px] md:bg-[bottom_0px_center]"
   style={{
     backgroundImage: `url(${hello})`,
-    backgroundSize: 'cover',
-   
-    
+    backgroundSize: windowWidth >= 768 && windowWidth <= 1800 ? "contain" : "cover",
+    backgroundRepeat:'no-repeat',
     zIndex: -1,
   }}
 ></div>
+
       <Navbar />
       <section className="text-center relative z-10 px-4">
         <h1
