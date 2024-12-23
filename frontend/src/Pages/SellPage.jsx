@@ -31,13 +31,13 @@ const SellPage = () => {
 
     {/* Form Section */}
     <div className="flex flex-col items-center justify-center mt-[43px]  ">
-      <h1 className="text-3xl font-bold font-poppins mb-[24px] " style={{ color: "#1F4B43" }}>
+      <h1 className="text-3xl font-bold font-poppins mb-[24px] " style={{ color: "#25A7E1" }}>
         Sell Now!
       </h1>
-      <p className=" text-center px-4 font-poppins" style={{ color: "#1F4B43" }}>
+      <p className=" text-center px-4 font-poppins" style={{ color: "#25A7E1" }}>
           Selling Your Apartment? List It Now And Connect With
       </p>
-      <p className=" text-center mb-[36px] font-poppins" style={{ color: "#1F4B43" }}>Buyers Quickly!</p>
+      <p className=" text-center mb-[36px] font-poppins" style={{ color: "#25A7E1" }}>Buyers Quickly!</p>
 
       {/* Form */}
       <Form
@@ -98,7 +98,7 @@ const SellPage = () => {
           type="primary"
             htmlType="submit"
             className="w-full mt-[20px] min-h-[50px]  font-poppins "
-          //   style={{ color: "#1F4B43" }}
+          //   style={{ color: "#25A7E1" }}
           >
             Submit
           </Button>

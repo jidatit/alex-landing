@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="text-white font-poppins" style={{ backgroundColor: "#1F4B43" }} >
+    <nav className="text-white font-poppins" style={{ backgroundColor: "#25A7E1" }} >
       <div className="container mx-auto flex py-6 px-6 justify-center items-center">
         <ul className="flex gap-14">
           

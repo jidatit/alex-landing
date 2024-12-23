@@ -9,7 +9,7 @@
 // //       <button 
 // //          onClick={() => navigate(route)}
 // //       className=" text-white font-poppins  rounded min-w-[210px] min-h-[50px]" 
-// //       style={{ backgroundColor: "#1F4B43" }}>
+// //       style={{ backgroundColor: "#25A7E1" }}>
 // //         {title}
 // //       </button>
 // //     </div>
@@ -36,7 +36,7 @@
 //       {/* Responsive Button */}
 //       <button
 //         onClick={() => navigate(route)}
-//         className="text-white font-poppins rounded px-6 py-2 text-sm md:text-base min-w-[150px] md:min-w-[210px] bg-[#1F4B43] hover:bg-[#164036] transition"
+//         className="text-white font-poppins rounded px-6 py-2 text-sm md:text-base min-w-[150px] md:min-w-[210px] bg-[#25A7E1] hover:bg-[#164036] transition"
 //       >
 //         {title}
 //       </button>
@@ -69,7 +69,7 @@ const PropertyCard = ({ icon, title, route }) => {
      
       <button
         onClick={() => navigate(route)}
-      className="text-white font-poppins rounded px-2 py-2 text-sm md:text-md min-w-[140px] sm:min-w-[120px] md:min-w-[180px] bg-[#1F4B43] hover:bg-[#164036] transition"
+      className="text-white font-poppins rounded px-2 py-2 text-sm md:text-md min-w-[140px] sm:min-w-[120px] md:min-w-[180px] bg-[#25A7E1] hover:bg-[#003160] transition"
       >
         {title}
       </button>

@@ -5,13 +5,13 @@
 
 
 .ant-btn {
-  background-color: #1F4B43 !important;
+  background-color: #25A7E1 !important;
 }
 
 /* Custom border color for input fields */
 
 /* .ant-input, .ant-select-selector, .ant-picker-input, .ant-picker-clear, .ant-picker-suffix {
-  border-color: #1F4B43 !important;
+  border-color: #25A7E1 !important;
 } */
 
 .ant-input, .ant-select-selector, .ant-picker-input, .ant-picker-clear, .ant-picker-suffix {
@@ -22,7 +22,7 @@
 /* Custom placeholder color for input fields */
 
 /* .ant-input::placeholder, .ant-select-selection-item, .ant-picker-input::placeholder {
-  color: #1F4B43 !important;
+  color: #25A7E1 !important;
 } */
 
 .ant-input::placeholder, .ant-select-selection-item, .ant-picker-input::placeholder {
@@ -33,7 +33,7 @@
 /* Custom color for dropdown icon */
 
 /* .ant-select-arrow, .ant-picker-suffix {
-  color: #1F4B43 !important;
+  color: #25A7E1 !important;
 } */
 
 .ant-select-arrow, .ant-picker-suffix {
@@ -43,7 +43,7 @@
 /* Custom focus state for input fields and date picker */
 
 /* .ant-input:focus, .ant-select-focused .ant-select-selector, .ant-picker-focused .ant-picker-input {
-  border-color: #1F4B43 !important;
+  border-color: #25A7E1 !important;
 } */
 
 .ant-input:focus, .ant-select-focused .ant-select-selector, .ant-picker-focused .ant-picker-input {
@@ -55,7 +55,7 @@
 /* Custom color for date picker calendar icon (suffix) */
 
 /* .ant-picker-suffix .anticon {
-  color: #1F4B43 !important;
+  color: #25A7E1 !important;
 } */
 
 .ant-picker-suffix .anticon {

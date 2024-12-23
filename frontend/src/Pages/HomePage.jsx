@@ -41,23 +41,23 @@ const HomePage = () => {
       <section className="text-center relative z-10 px-4">
         <h1
           className="text-2xl md:text-4xl font-poppins font-bold py-12 md:py-20"
-          style={{ color: "#1F4B43" }}
+          style={{ color: "#25A7E1" }}
         >
           Find Your Perfect Property
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 max-w-4xl mx-auto">
           <PropertyCard
-            icon={<FaKey className="w-10 h-10 md:w-12 md:h-12" color="#1F4B43" />}
+            icon={<FaKey className="w-10 h-10 md:w-12 md:h-12" color="#25A7E1" />}
             title="Rent"
             route="/rent"
           />
           <PropertyCard
-            icon={<AiFillHome className="w-10 h-10  md:w-12 md:h-12" color="#1F4B43" />}
+            icon={<AiFillHome className="w-10 h-10  md:w-12 md:h-12" color="#25A7E1" />}
             title="Buy"
             route="/buy"
           />
           <PropertyCard
-            icon={<FaTag  className="w-10 h-10  md:w-12 md:h-12" color="#1F4B43" />}
+            icon={<FaTag  className="w-10 h-10  md:w-12 md:h-12" color="#25A7E1" />}
             title="Sell"
             route="/sell"
           />

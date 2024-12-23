@@ -33,13 +33,13 @@ const RentPage = () => {
 
       {/* Form Section */}
       <div className="flex flex-col items-center justify-center mt-[43px]">
-        <h1 className="text-3xl font-bold font-poppins  mb-[24px]" style={{ color: "#1F4B43" }}>
+        <h1 className="text-3xl font-bold font-poppins  mb-[24px]" style={{ color: "#25A7E1" }}>
           Rent An Apartment!
         </h1>
-        <p className=" text-center font-poppins"  style={{ color: "#1F4B43" }}>
+        <p className=" text-center font-poppins"  style={{ color: "#25A7E1" }}>
           Find Your Ideal Apartment With Ease—Choose Your Size, Neighborhood, And Move-In Date To
         </p>
-        <p className=" text-center mb-[36px] font-poppins" style={{ color: "#1F4B43" }}>Get Started Today!</p>
+        <p className=" text-center mb-[36px] font-poppins" style={{ color: "#25A7E1" }}>Get Started Today!</p>
 
         {/* Form */}
         <Form
@@ -155,7 +155,7 @@ const RentPage = () => {
             type="primary"
               htmlType="submit"
               className="w-full mt-[20px] min-h-[50px]  font-poppins"
-            //   style={{ color: "#1F4B43" }}
+            //   style={{ color: "#25A7E1" }}
             >
               Submit
             </Button>
