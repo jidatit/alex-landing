@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../Components/NavBar";
-import { Form, Button, DatePicker, Select, Input, message, Space } from "antd";
+import {
+  Form,
+  Button,
+  DatePicker,
+  Select,
+  Input,
+  message,
+  Space,
+  InputNumber,
+  TimePicker,
+} from "antd";
 import { CalendarOutlined } from "@ant-design/icons";
 import home1 from "../Assets/home1.png";
 import { RentDataMail } from "../utils/SendDataEmail";
@@ -18,7 +28,30 @@ const RentPage = () => {
       content: message,
     });
   };
+  const [formattedDate, setFormattedDate] = useState(null);
+  const [formattedTime, setFormattedTime] = useState(null);
 
+  // Handle Date change and format it to DD-MM-YYYY
+  const handleDateChange = (date) => {
+    if (date) {
+      const formatted = moment(date).format("DD-MM-YYYY");
+      setFormattedDate(formatted); // Store the formatted date
+    } else {
+      setFormattedDate(null); // Clear the date if it's empty
+    }
+  };
+
+  // Handle Time change and format it to HH:mm
+  const handleTimeChange = (time) => {
+    if (time && time.isValid()) {
+      // Check if the time object is valid
+      const formatted = time.format("HH:mm");
+
+      setFormattedTime(formatted);
+    } else {
+      setFormattedTime(null); // Clear the time if invalid or empty
+    }
+  };
   const handleInputChange = (field, value) => {
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -29,9 +62,24 @@ const RentPage = () => {
     }));
   };
   const onFinish = (values) => {
-    RentDataMail(values, formValues.moveInDate, messageApi);
+    const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const resource = "rent";
+    RentDataMail(
+      values,
+      formValues.moveInDate,
+      messageApi,
+      currentTimeZone,
+      resource,
+      formattedDate,
+      formattedTime
+    );
     success("Your Rent Form submitted successfully");
-    console.log("Form Submitted:", formValues.moveInDate);
+    console.log(
+      "Form Submitted:",
+      formValues.moveInDate,
+      "Time Zone:",
+      currentTimeZone
+    );
 
     form.resetFields();
   };
@@ -42,7 +90,16 @@ const RentPage = () => {
   // const voucher = ["yes", "no"];
   // const creditScore = ["1BHK", "2BHK", "3BHK"];
   // const familySize = ["7", "2", "3"];
-
+  const neighborhoods = [
+    { value: "greenpoint", label: "Greenpoint" },
+    { value: "bushwick", label: "Bushwick" },
+    { value: "downtown_brooklyn", label: "Downtown Brooklyn" },
+    { value: "cobble_hill", label: "Cobble Hill" },
+    { value: "dumbo", label: "DUMBO" },
+    { value: "park_slope", label: "Park Slope" },
+    { value: "williamsburg", label: "Williamsburg" },
+    { value: "brooklyn_heights", label: "Brooklyn Heights" },
+  ];
   return (
     <>
       {contextHolder}
@@ -77,6 +134,16 @@ const RentPage = () => {
             className="w-full max-w-md  font-poppins px-4 "
           >
             <Form.Item
+              name="name"
+              rules={[{ required: true }]}
+              className="mb-3 font-poppins "
+            >
+              <Input
+                placeholder="Name"
+                className="min-h-[50px] font-poppins [&::placeholder]:text-gray-300 place"
+              />
+            </Form.Item>
+            <Form.Item
               name="email"
               rules={[
                 {
@@ -91,7 +158,7 @@ const RentPage = () => {
             >
               <Input
                 placeholder="Email"
-                className="min-h-[50px] font-poppins"
+                className="min-h-[50px] font-poppins place"
               />
             </Form.Item>
             {/* Apartment Size */}
@@ -103,6 +170,7 @@ const RentPage = () => {
               <Select
                 placeholder="Apartment Size"
                 className="min-h-[50px]  font-poppins"
+                style={{ borderColor: "#666666" }}
               >
                 {apartmentSize.map((option, index) => (
                   <Option key={index} value={option}>
@@ -115,24 +183,47 @@ const RentPage = () => {
             <Form.Item
               name="income"
               className="mb-3 font-poppins"
-              rules={[{ required: true }]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please select your annual income!",
+                },
+              ]}
             >
-              <Input
-                placeholder="Annual Income"
-                className="min-h-[50px] font-poppins "
-              />
+              <Select
+                placeholder="Select Annual Income"
+                className="min-h-[50px] font-poppins"
+                style={{ borderColor: "#666666" }}
+              >
+                {Array.from({ length: 22 }, (_, i) => {
+                  const value = 40000 + i * 10000;
+                  return (
+                    <Select.Option key={value} value={value}>
+                      {value.toLocaleString()}$
+                    </Select.Option>
+                  );
+                })}
+              </Select>
             </Form.Item>
 
             {/* Vouchers */}
             <Form.Item
               name="vouchers"
               className="mb-3 font-poppins"
-              rules={[{ required: true }]}
+              rules={[
+                { required: true, message: "Please select a voucher type!" },
+              ]} // Added custom validation message
             >
-              <Input
-                placeholder="Vouchers"
+              <Select
+                placeholder="Select Voucher"
                 className="min-h-[50px] font-poppins"
-              />
+                style={{ borderColor: "#666666" }}
+              >
+                <Select.Option value="section_8">Section 8</Select.Option>
+                <Select.Option value="CityFheps">CityFheps</Select.Option>
+                <Select.Option value="hassa">Hassa</Select.Option>
+                <Select.Option value="other">Other</Select.Option>
+              </Select>
             </Form.Item>
 
             {/* Credit Score */}
@@ -141,10 +232,66 @@ const RentPage = () => {
               className="mb-3 font-poppins"
               rules={[{ required: true }]}
             >
-              <Input
+              <InputNumber
                 placeholder="Credit Score"
-                className="min-h-[50px] font-poppins"
+                className="py-2.5 font-poppins w-full"
+                controls={true}
+                style={{ borderColor: "#666666" }}
+                min={0}
               />
+            </Form.Item>
+            <Form.Item
+              name="commercialSpace"
+              className="mb-3 font-poppins"
+              rules={[
+                { required: true, message: "Please enter a valid number!" },
+                {
+                  type: "number",
+                  min: 0,
+                  message: "Value must be a positive number!",
+                },
+              ]}
+            >
+              <Input.Group compact>
+                <Form.Item
+                  name="commercialSpace"
+                  noStyle
+                  rules={[
+                    { required: true, message: "Please enter a valid number!" },
+                    {
+                      type: "number",
+                      min: 0,
+                      message: "Value must be a positive number!",
+                    },
+                  ]}
+                >
+                  <InputNumber
+                    placeholder="Commercial Space"
+                    className="py-2.5 font-poppins w-full"
+                    min={0}
+                    controls={true}
+                    style={{
+                      width: "calc(100% - 50px)",
+                      borderColor: "#666666",
+                    }} // Adjust width for the suffix
+                  />
+                </Form.Item>
+                <span
+                  className="py-3.5 font-poppins"
+                  style={{
+                    width: "50px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    border: "1px solid #d9d9d9",
+                    borderColor: "#666666",
+                    borderLeft: "none",
+                    backgroundColor: "#fafafa",
+                  }}
+                >
+                  (Sqft)
+                </span>
+              </Input.Group>
             </Form.Item>
 
             {/* Move In Date */}
@@ -163,7 +310,7 @@ const RentPage = () => {
                 }
                 onChange={(date) => handleInputChange("moveInDate", date)}
                 suffixIcon={<CalendarOutlined />}
-                style={{ borderColor: "rgb(87, 85, 85)" }}
+                style={{ borderColor: "#666666" }}
               />
             </Form.Item>
 
@@ -171,12 +318,24 @@ const RentPage = () => {
             <Form.Item
               name="neighborhood"
               className="mb-3 font-poppins"
-              rules={[{ required: true }]}
+              rules={[
+                { required: true, message: "Please select a neighborhood!" },
+              ]}
             >
-              <Input
-                placeholder="Neighborhood"
+              <Select
+                placeholder="Select Neighborhood"
                 className="min-h-[50px] font-poppins"
-              />
+                style={{ borderColor: "#666666" }}
+              >
+                {neighborhoods.map((neighborhood) => (
+                  <Select.Option
+                    key={neighborhood.value}
+                    value={neighborhood.value}
+                  >
+                    {neighborhood.label}
+                  </Select.Option>
+                ))}
+              </Select>
             </Form.Item>
 
             {/* Family Size */}
@@ -185,9 +344,52 @@ const RentPage = () => {
               className="mb-3 font-poppins"
               rules={[{ required: true }]}
             >
-              <Input
+              <InputNumber
                 placeholder="Family Size"
-                className="min-h-[50px] font-poppins"
+                className="py-2.5 font-poppins w-full"
+                controls={true}
+                min={0} // Restrict to non-negative numbers
+                max={20}
+                style={{ borderColor: "#666666" }}
+              />
+            </Form.Item>
+            <Form.Item
+              name="availabilityDate"
+              className="mb-3 font-poppins"
+              rules={[
+                {
+                  required: true,
+                  message: "Please select an availability date!",
+                },
+              ]}
+            >
+              <DatePicker
+                placeholder="Select Availability Date"
+                className="py-3.5 w-full font-poppins"
+                style={{ borderColor: "#666666" }}
+                onChange={handleDateChange} // Set the date change handler
+                format="DD-MM-YYYY" // Display format
+              />
+            </Form.Item>
+
+            {/* Availability Time */}
+            <Form.Item
+              name="availabilityTime"
+              className="mb-3 font-poppins"
+              rules={[
+                {
+                  required: true,
+                  message: "Please select an availability time!",
+                },
+              ]}
+            >
+              <TimePicker
+                placeholder="Select Availability Time"
+                className="py-3.5 w-full font-poppins"
+                format="HH:mm"
+                style={{ borderColor: "#666666" }}
+                onChange={handleTimeChange}
+                value={formattedTime ? moment(formattedTime, "HH:mm") : null} // Set value correctly
               />
             </Form.Item>
             {/* Submit Button */}

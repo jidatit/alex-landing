@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .ant-btn {
-  background-color: #25A7E1 !important;
+  background-color: #25a7e1 !important;
 }
 
 /* Custom border color for input fields */
@@ -14,9 +12,12 @@
   border-color: #25A7E1 !important;
 } */
 
-.ant-input, .ant-select-selector, .ant-picker-input, .ant-picker-clear, .ant-picker-suffix {
+.ant-input,
+.ant-select-selector,
+.ant-picker-input,
+.ant-picker-clear,
+.ant-picker-suffix {
   border-color: rgb(87, 85, 85) !important;
- 
 }
 
 /* Custom placeholder color for input fields */
@@ -25,9 +26,10 @@
   color: #25A7E1 !important;
 } */
 
-.ant-input::placeholder, .ant-select-selection-item, .ant-picker-input::placeholder {
+.ant-input::placeholder,
+.ant-select-selection-item,
+.ant-picker-input::placeholder {
   color: rgb(87, 85, 85) !important;
- 
 }
 
 /* Custom color for dropdown icon */
@@ -36,7 +38,8 @@
   color: #25A7E1 !important;
 } */
 
-.ant-select-arrow, .ant-picker-suffix {
+.ant-select-arrow,
+.ant-picker-suffix {
   color: rgb(87, 85, 85) !important;
 }
 
@@ -46,11 +49,11 @@
   border-color: #25A7E1 !important;
 } */
 
-.ant-input:focus, .ant-select-focused .ant-select-selector, .ant-picker-focused .ant-picker-input {
-  border-color: rgb(87, 85, 85)  !important;
-  
+.ant-input:focus,
+.ant-select-focused .ant-select-selector,
+.ant-picker-focused .ant-picker-input {
+  border-color: rgb(87, 85, 85) !important;
 }
-
 
 /* Custom color for date picker calendar icon (suffix) */
 
@@ -59,15 +62,12 @@
 } */
 
 .ant-picker-suffix .anticon {
-  color: rgb(87, 85, 85)  !important;
+  color: rgb(87, 85, 85) !important;
 }
 
-
-
-
-
-
-
-
- 
-
+.place::placeholder {
+  color: #d4d4d4 !important;
+}
+.borderC {
+  border-color: "#666666";
+}
