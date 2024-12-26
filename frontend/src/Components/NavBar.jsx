@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
+  const [isHovered3, setIsHovered3] = useState(false);
+
+  // const handleMouseEnter = () => setIsHovered(true);
+  // const handleMouseLeave = () => setIsHovered(false);
+
   // Menu for the dropdown
   const menu = (
-    <Menu>
-      <Menu.Item key="1">
-        <NavLink
-          to="/rent"
-          className="block py-2 px-4 text-black hover:bg-[#25A7E1] rounded-lg hover:text-white"
-        >
+    <Menu style={{ padding: "0.5rem" }}>
+      <Menu.Item key="1" className="navbar-menu-item">
+        <NavLink to="/rent" className="menuitem px-0.5 py-1">
           Rent
         </NavLink>
       </Menu.Item>
-      <Menu.Item key="2">
-        <NavLink
-          to="/buy"
-          className="block py-2 px-4 text-black hover:bg-[#25A7E1] rounded-lg hover:text-white"
-        >
+
+      <Menu.Item key="2" className="navbar-menu-item ">
+        <NavLink to="/buy" className="menuitem px-0.5 py-1">
           Buy
         </NavLink>
       </Menu.Item>
-      <Menu.Item key="3">
-        <NavLink
-          to="/sell"
-          className="block py-2 px-4 text-black hover:bg-[#25A7E1] rounded-lg hover:text-white"
-        >
+
+      <Menu.Item key="3" className="navbar-menu-item">
+        <NavLink to="/sell" className="menuitem px-0.5 py-1">
           Sell
         </NavLink>
       </Menu.Item>
@@ -106,7 +106,7 @@ const Navbar = () => {
             className="ant-dropdown-link px-4 py-2.5 cursor-pointer rounded-lg bg-white text-[#25A7E1]"
             onClick={(e) => e.preventDefault()}
           >
-            Consultation Button <DownOutlined />
+            Book a Consultation <DownOutlined />
           </NavLink>
         </Dropdown>
       </div>
