@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/NavBar";
 import PropertyCard from "../Components/PropertyCard";
@@ -24,18 +23,17 @@ const HomePage = () => {
     };
   }, []);
   return (
-    <div className="relative min-h-screen">
-
-
-<div
-  className="absolute top-0 left-0 w-full h-full sm:bg-[bottom_0px_left_-90px] md:bg-[bottom_0px_center]"
-  style={{
-    backgroundImage: `url(${hello})`,
-    backgroundSize: windowWidth >= 768 && windowWidth <= 1800 ? "contain" : "cover",
-    backgroundRepeat:'no-repeat',
-    zIndex: -1,
-  }}
-></div>
+    <div className="relative h-[94vh] md:min-h-screen">
+      <div
+        className="absolute top-0 left-0 w-full h-full sm:bg-[bottom_0px_left_-90px] md:bg-[bottom_0px_center]"
+        style={{
+          backgroundImage: `url(${hello})`,
+          backgroundSize:
+            windowWidth >= 768 && windowWidth <= 1800 ? "contain" : "cover",
+          backgroundRepeat: "no-repeat",
+          zIndex: -1,
+        }}
+      ></div>
 
       <Navbar />
       <section className="text-center relative z-10 px-4">
@@ -45,19 +43,28 @@ const HomePage = () => {
         >
           Find Your Perfect Property
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 md:gap-16 max-w-4xl mx-auto">
           <PropertyCard
-            icon={<FaKey className="w-10 h-10 md:w-12 md:h-12" color="#25A7E1" />}
+            icon={
+              <FaKey className="w-10 h-10 md:w-12 md:h-12" color="#25A7E1" />
+            }
             title="Rent"
             route="/rent"
           />
           <PropertyCard
-            icon={<AiFillHome className="w-10 h-10  md:w-12 md:h-12" color="#25A7E1" />}
+            icon={
+              <AiFillHome
+                className="w-10 h-10  md:w-12 md:h-12"
+                color="#25A7E1"
+              />
+            }
             title="Buy"
             route="/buy"
           />
           <PropertyCard
-            icon={<FaTag  className="w-10 h-10  md:w-12 md:h-12" color="#25A7E1" />}
+            icon={
+              <FaTag className="w-10 h-10  md:w-12 md:h-12" color="#25A7E1" />
+            }
             title="Sell"
             route="/sell"
           />
@@ -68,5 +75,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-

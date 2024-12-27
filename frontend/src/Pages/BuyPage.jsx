@@ -69,14 +69,15 @@ const BuyPage = () => {
   const neighbourHood = ["1BHK", "2BHK", "3BHK"];
   const familySize = ["7", "2", "3"];
   const neighborhoods = [
-    { value: "greenpoint", label: "Greenpoint" },
-    { value: "bushwick", label: "Bushwick" },
-    { value: "downtown_brooklyn", label: "Downtown Brooklyn" },
-    { value: "cobble_hill", label: "Cobble Hill" },
-    { value: "dumbo", label: "DUMBO" },
-    { value: "park_slope", label: "Park Slope" },
-    { value: "williamsburg", label: "Williamsburg" },
-    { value: "brooklyn_heights", label: "Brooklyn Heights" },
+    { value: "crown_heights", label: "Crown Heights" },
+    { value: "flatbush", label: "Flatbush" },
+    { value: "canarsie", label: "Canarsie" },
+    { value: "ditmasPark", label: "Ditmas Park" },
+    { value: "eastNewYork", label: "East New York" },
+    { value: "prospectHeights", label: "Prospect Heights" },
+    { value: "eastFlatbush", label: "East Flatbush" },
+    { value: "leffertsGarden", label: "Lefferts Garden" },
+    { value: "other", label: "Other" },
   ];
   return (
     <>
@@ -92,7 +93,10 @@ const BuyPage = () => {
           >
             Buy Now!
           </h1>
-          <p className=" text-center font-poppins" style={{ color: "#25A7E1" }}>
+          <p
+            className=" text-center font-poppins md:px-0 px-5"
+            style={{ color: "#25A7E1" }}
+          >
             Find Your Dream Apartment—Tailored To Your Budget, Size, and
             Location. Start Your Journey To
           </p>
@@ -108,7 +112,7 @@ const BuyPage = () => {
             form={form}
             layout="vertical"
             onFinish={onFinish}
-            className=" w-full max-w-md  font-poppins px-4"
+            className=" w-full max-w-md  font-poppins px-8 md:px-4"
           >
             <Form.Item
               name="name"
@@ -204,17 +208,17 @@ const BuyPage = () => {
               </Select>
             </Form.Item>
             <Form.Item
-              name="availabilityDate"
+              name="tourDate"
               className="mb-3 font-poppins"
               rules={[
                 {
                   required: true,
-                  message: "Please select an availability date!",
+                  message: "Please select an Tour date!",
                 },
               ]}
             >
               <DatePicker
-                placeholder="Select Availability Date"
+                placeholder="Select Tour Date"
                 className="py-3.5 w-full font-poppins"
                 style={{ borderColor: "#666666" }}
                 onChange={handleDateChange} // Set the date change handler
@@ -224,17 +228,17 @@ const BuyPage = () => {
 
             {/* Availability Time */}
             <Form.Item
-              name="availabilityTime"
+              name="tourTime"
               className="mb-3 font-poppins"
               rules={[
                 {
                   required: true,
-                  message: "Please select an availability time!",
+                  message: "Please select an Tour time!",
                 },
               ]}
             >
               <TimePicker
-                placeholder="Select Availability Time"
+                placeholder="Select Tour Time"
                 className="py-3.5 w-full font-poppins"
                 format="HH:mm"
                 style={{ borderColor: "#666666" }}

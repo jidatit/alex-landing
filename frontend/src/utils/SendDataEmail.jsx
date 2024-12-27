@@ -17,8 +17,8 @@ export function RentDataMail(
     email: values.email,
     name: values.name,
     neighborhood: values.neighborhood,
-    availabilityDate: formattedDate,
-    availabilityTime: formattedTime,
+    tourDate: formattedDate,
+    tourTime: formattedTime,
     currentTimeZone: currentTimeZone,
     resource: resource,
     // Add conditional flags
@@ -59,7 +59,11 @@ export function RentDataMail(
       import.meta.env.VITE_EMAILJS_KEY
     )
     .then((response) => {
-      Toast(`${resource} Data is sent to your mail!`, messageApi, "success");
+      Toast(
+        `${resource} Data is sent to owner mail successfully!`,
+        messageApi,
+        "success"
+      );
     })
     .catch((err) => {
       console.log("Failed Sending Mail...", err);

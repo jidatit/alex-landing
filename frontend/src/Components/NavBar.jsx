@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dropdown, Menu } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import { DownOutlined, MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   // const handleMouseEnter = () => setIsHovered(true);
   // const handleMouseLeave = () => setIsHovered(false);
@@ -35,80 +34,141 @@ const Navbar = () => {
   );
 
   return (
-    <nav
-      className="text-white font-poppins"
-      style={{ backgroundColor: "#25A7E1" }}
-    >
-      <div className=" px-8 mx-auto flex py-6  justify-between items-center">
-        {/* Left side of the navbar (Home, Rent, Buy, Sell) */}
-        <div>
-          <NavLink
-            to="/"
-            className="block py-2 px-4 text-white hover:bg-[#25A7E1] hover:text-white opacity-0"
-          >
+    <nav className="bg-[#25A7E1] text-white font-poppins">
+      <div className="px-4 md:px-8 mx-auto">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo/Home */}
+          <NavLink to="/" className="text-xl font-bold opacity-0">
             Home
           </NavLink>
-        </div>
-        <ul className="flex gap-14">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `cursor-pointer pb-1 ${
-                  isActive ? "border-b-2 border-white" : ""
-                }`
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/rent"
-              className={({ isActive }) =>
-                `cursor-pointer pb-1 ${
-                  isActive ? "border-b-2 border-white" : ""
-                }`
-              }
-            >
-              Rent
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/buy"
-              className={({ isActive }) =>
-                `cursor-pointer pb-1 ${
-                  isActive ? "border-b-2 border-white" : ""
-                }`
-              }
-            >
-              Buy
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/sell"
-              className={({ isActive }) =>
-                `cursor-pointer pb-1 ${
-                  isActive ? "border-b-2 border-white" : ""
-                }`
-              }
-            >
-              Sell
-            </NavLink>
-          </li>
-        </ul>
 
-        {/* Right side Dropdown */}
-        <Dropdown overlay={menu} trigger={["click"]}>
-          <NavLink
-            className="ant-dropdown-link px-4 py-2.5 cursor-pointer rounded-lg bg-white text-[#25A7E1]"
-            onClick={(e) => e.preventDefault()}
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 focus:outline-none"
           >
-            Book a Consultation <DownOutlined />
-          </NavLink>
-        </Dropdown>
+            <MenuOutlined className="text-2xl" />
+          </button>
+
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex gap-10 lg:gap-16 items-center">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `pb-1 ${isActive ? "border-b-2 border-white" : ""}`
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/rent"
+                className={({ isActive }) =>
+                  `pb-1 ${isActive ? "border-b-2 border-white" : ""}`
+                }
+              >
+                Rent
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/buy"
+                className={({ isActive }) =>
+                  `pb-1 ${isActive ? "border-b-2 border-white" : ""}`
+                }
+              >
+                Buy
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/sell"
+                className={({ isActive }) =>
+                  `pb-1 ${isActive ? "border-b-2 border-white" : ""}`
+                }
+              >
+                Sell
+              </NavLink>
+            </li>
+          </ul>
+          {/* Desktop Consultation Button */}
+          <Dropdown
+            overlay={menu}
+            trigger={["click"]}
+            className="hidden md:flex gap-x-2 items-center"
+          >
+            <button className="px-4 py-2 bg-white text-[#25A7E1] rounded-lg">
+              Book a Consultation <DownOutlined />
+            </button>
+          </Dropdown>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } md:hidden pb-4 transition-all duration-300`}
+        >
+          <ul className="space-y-4">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `block py-2 px-2 rounded-lg ${isActive ? "bg-[#1E86B4]" : ""}`
+                }
+                onClick={toggleMenu}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/rent"
+                className={({ isActive }) =>
+                  `block py-2 px-2 rounded-lg ${isActive ? "bg-[#1E86B4]" : ""}`
+                }
+                onClick={toggleMenu}
+              >
+                Rent
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/buy"
+                className={({ isActive }) =>
+                  `block py-2 px-2 rounded-lg ${isActive ? "bg-[#1E86B4]" : ""}`
+                }
+                onClick={toggleMenu}
+              >
+                Buy
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/sell"
+                className={({ isActive }) =>
+                  `block py-2 px-2 rounded-lg ${isActive ? "bg-[#1E86B4]" : ""}`
+                }
+                onClick={toggleMenu}
+              >
+                Sell
+              </NavLink>
+            </li>
+            <li>
+              <Dropdown
+                overlay={menu}
+                trigger={["click"]}
+                className="flex justify-between items-center"
+              >
+                <button className="w-full text-left py-2 px-4 bg-white text-[#25A7E1] rounded-lg">
+                  Book a Consultation <DownOutlined />
+                </button>
+              </Dropdown>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
