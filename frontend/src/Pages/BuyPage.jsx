@@ -200,6 +200,12 @@ const BuyPage = () => {
                 placeholder="House Type"
                 className="min-h-[50px] font-poppins"
               >
+                <Option key="coop" value="coop">
+                  Co-op
+                </Option>
+                <Option key="condo" value="condo">
+                  Condo
+                </Option>
                 {[...Array(6).keys()].map((index) => (
                   <Option key={index} value={`${index + 1} family home`}>
                     {`${index + 1} family home`}
