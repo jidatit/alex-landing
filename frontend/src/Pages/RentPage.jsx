@@ -172,11 +172,7 @@ const RentPage = () => {
               />
             </Form.Item>
             {/* Apartment Size */}
-            <Form.Item
-              name="apartmentSize"
-              className="mb-3  font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="apartmentSize" className="mb-3  font-poppins">
               <Select
                 placeholder="Apartment Size"
                 className="min-h-[50px]  font-poppins"
@@ -190,16 +186,7 @@ const RentPage = () => {
               </Select>
             </Form.Item>
 
-            <Form.Item
-              name="income"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select your annual income!",
-                },
-              ]}
-            >
+            <Form.Item name="income" className="mb-3 font-poppins">
               <Select
                 placeholder="Select Annual Income"
                 className="min-h-[50px] font-poppins"
@@ -217,13 +204,7 @@ const RentPage = () => {
             </Form.Item>
 
             {/* Vouchers */}
-            <Form.Item
-              name="vouchers"
-              className="mb-3 font-poppins"
-              rules={[
-                { required: true, message: "Please select a voucher type!" },
-              ]} // Added custom validation message
-            >
+            <Form.Item name="vouchers" className="mb-3 font-poppins">
               <Select
                 placeholder="Select Voucher"
                 className="min-h-[50px] font-poppins"
@@ -237,11 +218,7 @@ const RentPage = () => {
             </Form.Item>
 
             {/* Credit Score */}
-            <Form.Item
-              name="creditScore"
-              className="mb-3 font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="creditScore" className="mb-3 font-poppins">
               <InputNumber
                 placeholder="Credit Score"
                 className="py-2.5 font-poppins w-full"
@@ -250,31 +227,9 @@ const RentPage = () => {
                 min={0}
               />
             </Form.Item>
-            <Form.Item
-              name="commercialSpace"
-              className="mb-3 font-poppins"
-              rules={[
-                { required: true, message: "Please enter a valid number!" },
-                {
-                  type: "number",
-                  min: 0,
-                  message: "Value must be a positive number!",
-                },
-              ]}
-            >
+            <Form.Item name="commercialSpace" className="mb-3 font-poppins">
               <Input.Group compact>
-                <Form.Item
-                  name="commercialSpace"
-                  noStyle
-                  rules={[
-                    { required: true, message: "Please enter a valid number!" },
-                    {
-                      type: "number",
-                      min: 0,
-                      message: "Value must be a positive number!",
-                    },
-                  ]}
-                >
+                <Form.Item name="commercialSpace" noStyle>
                   <InputNumber
                     placeholder="Commercial Space"
                     className="py-2.5 font-poppins w-full"
@@ -305,11 +260,7 @@ const RentPage = () => {
             </Form.Item>
 
             {/* Move In Date */}
-            <Form.Item
-              name="moveInDate"
-              className="mb-3 font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="moveInDate" className="mb-3 font-poppins">
               <DatePicker
                 placeholder="Move In Date"
                 className="w-full min-h-[50px] font-poppins"
@@ -325,13 +276,7 @@ const RentPage = () => {
             </Form.Item>
 
             {/* Neighborhood */}
-            <Form.Item
-              name="neighborhood"
-              className="mb-3 font-poppins"
-              rules={[
-                { required: true, message: "Please select a neighborhood!" },
-              ]}
-            >
+            <Form.Item name="neighborhood" className="mb-3 font-poppins">
               <Select
                 placeholder="Select Neighborhood"
                 className="min-h-[50px] font-poppins"
@@ -349,11 +294,7 @@ const RentPage = () => {
             </Form.Item>
 
             {/* Family Size */}
-            <Form.Item
-              name="familySize"
-              className="mb-3 font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="familySize" className="mb-3 font-poppins">
               <InputNumber
                 placeholder="Family Size"
                 className="py-2.5 font-poppins w-full"
@@ -363,16 +304,7 @@ const RentPage = () => {
                 style={{ borderColor: "#666666" }}
               />
             </Form.Item>
-            <Form.Item
-              name="tourDate"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select an Tour date!",
-                },
-              ]}
-            >
+            <Form.Item name="tourDate" className="mb-3 font-poppins">
               <DatePicker
                 placeholder="Select Tour Date"
                 className="py-3.5 w-full font-poppins"
@@ -383,16 +315,7 @@ const RentPage = () => {
             </Form.Item>
 
             {/* Tour Time */}
-            <Form.Item
-              name="tourTime"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select an Tour time!",
-                },
-              ]}
-            >
+            <Form.Item name="tourTime" className="mb-3 font-poppins">
               <TimePicker
                 placeholder="Select Tour Time"
                 className="py-3.5 w-full font-poppins"

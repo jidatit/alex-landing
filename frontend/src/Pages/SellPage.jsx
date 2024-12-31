@@ -146,11 +146,7 @@ const SellPage = () => {
               />
             </Form.Item>
             {/* Apartment Size */}
-            <Form.Item
-              name="propertyType"
-              className="mb-3 ont-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="propertyType" className="mb-3 ont-poppins">
               <Select
                 className="min-h-[50px]  font-poppins "
                 placeholder="Property Type"
@@ -164,13 +160,7 @@ const SellPage = () => {
             </Form.Item>
 
             {/* Annual Income */}
-            <Form.Item
-              name="neighborhood"
-              className="mb-3 font-poppins"
-              rules={[
-                { required: true, message: "Please select a neighborhood!" },
-              ]}
-            >
+            <Form.Item name="neighborhood" className="mb-3 font-poppins">
               <Select
                 placeholder="Select Neighborhood"
                 className="min-h-[50px] font-poppins"
@@ -188,11 +178,7 @@ const SellPage = () => {
             </Form.Item>
 
             {/* Vouchers */}
-            <Form.Item
-              name="PriceRange"
-              className="mb-3 font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="PriceRange" className="mb-3 font-poppins">
               <Select
                 placeholder="Price Range"
                 className="min-h-[50px] font-poppins"
@@ -210,16 +196,7 @@ const SellPage = () => {
                 })}
               </Select>
             </Form.Item>
-            <Form.Item
-              name="tourDate"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select an Tour date!",
-                },
-              ]}
-            >
+            <Form.Item name="tourDate" className="mb-3 font-poppins">
               <DatePicker
                 placeholder="Select Tour Date"
                 className="py-3.5 w-full font-poppins"
@@ -230,16 +207,7 @@ const SellPage = () => {
             </Form.Item>
 
             {/* Tour Time */}
-            <Form.Item
-              name="tourTime"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select an Tour time!",
-                },
-              ]}
-            >
+            <Form.Item name="tourTime" className="mb-3 font-poppins">
               <TimePicker
                 placeholder="Select Tour Time"
                 className="py-3.5 w-full font-poppins"

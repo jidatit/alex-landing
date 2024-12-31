@@ -116,8 +116,8 @@ const BuyPage = () => {
           >
             <Form.Item
               name="name"
-              rules={[{ required: true }]}
               className="mb-3 font-poppins "
+              rules={[{ required: true }]}
             >
               <Input
                 placeholder="Name"
@@ -143,11 +143,7 @@ const BuyPage = () => {
               />
             </Form.Item>
             {/* Apartment Size */}
-            <Form.Item
-              name="PriceRange"
-              className="mb-3 font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="PriceRange" className="mb-3 font-poppins">
               <Select
                 placeholder="Price Range"
                 className="min-h-[50px] font-poppins"
@@ -167,13 +163,7 @@ const BuyPage = () => {
             </Form.Item>
 
             {/* Neighborhood */}
-            <Form.Item
-              name="neighborhood"
-              className="mb-3 font-poppins"
-              rules={[
-                { required: true, message: "Please select a neighborhood!" },
-              ]}
-            >
+            <Form.Item name="neighborhood" className="mb-3 font-poppins">
               <Select
                 placeholder="Select Neighborhood"
                 className="min-h-[50px] font-poppins"
@@ -191,11 +181,7 @@ const BuyPage = () => {
             </Form.Item>
 
             {/* Family Size */}
-            <Form.Item
-              name="houseType"
-              className="mb-3 font-poppins"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="houseType" className="mb-3 font-poppins">
               <Select
                 placeholder="House Type"
                 className="min-h-[50px] font-poppins"
@@ -213,16 +199,7 @@ const BuyPage = () => {
                 ))}
               </Select>
             </Form.Item>
-            <Form.Item
-              name="tourDate"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select an Tour date!",
-                },
-              ]}
-            >
+            <Form.Item name="tourDate" className="mb-3 font-poppins">
               <DatePicker
                 placeholder="Select Tour Date"
                 className="py-3.5 w-full font-poppins"
@@ -233,16 +210,7 @@ const BuyPage = () => {
             </Form.Item>
 
             {/* Availability Time */}
-            <Form.Item
-              name="tourTime"
-              className="mb-3 font-poppins"
-              rules={[
-                {
-                  required: true,
-                  message: "Please select an Tour time!",
-                },
-              ]}
-            >
+            <Form.Item name="tourTime" className="mb-3 font-poppins">
               <TimePicker
                 placeholder="Select Tour Time"
                 className="py-3.5 w-full font-poppins"
@@ -256,7 +224,6 @@ const BuyPage = () => {
               name="prequalified"
               className="mb-3 font-poppins"
               label="Are you prequalified?" // Added label here
-              rules={[{ required: true, message: "Please select an option" }]}
             >
               <Radio.Group
                 defaultValue="yes" // Optional: set default value to "yes"
