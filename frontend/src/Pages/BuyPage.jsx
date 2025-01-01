@@ -35,7 +35,7 @@ const BuyPage = () => {
       formattedDate,
       formattedTime
     );
-    Toast("Your Rent Form submitted successfully", messageApi, "success");
+    Toast("Your Buy Form submitted successfully", messageApi, "success");
     console.log("Form Submitted:", formattedTime);
 
     form.resetFields();

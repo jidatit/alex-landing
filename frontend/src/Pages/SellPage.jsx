@@ -36,7 +36,7 @@ const SellPage = () => {
       formattedDate,
       formattedTime
     );
-    Toast("Your Rent Form submitted successfully", messageApi, "success");
+    Toast("Your Sell Form submitted successfully", messageApi, "success");
     console.log("Form Submitted:", "Time Zone:", currentTimeZone);
 
     form.resetFields();
