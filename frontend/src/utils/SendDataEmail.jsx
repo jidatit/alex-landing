@@ -16,6 +16,7 @@ export function RentDataMail(
     from_name: "Alex Landing",
     email: values.email,
     name: values.name,
+    phoneNumber: values.phoneNumber,
     neighborhood: values.neighborhood,
     tourDate: formattedDate,
     tourTime: formattedTime,

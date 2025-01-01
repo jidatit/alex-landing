@@ -62,6 +62,7 @@ const RentPage = () => {
     }));
   };
   const onFinish = (values) => {
+    console.log("valuesPhone", values.phoneNumber);
     const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const resource = "rent";
     RentDataMail(
@@ -169,6 +170,18 @@ const RentPage = () => {
               <Input
                 placeholder="Email"
                 className="min-h-[50px] font-poppins place"
+              />
+            </Form.Item>
+            <Form.Item
+              name="phoneNumber"
+              className="mb-3 font-poppins"
+              rules={[{ required: true }]}
+            >
+              <InputNumber
+                placeholder="Phone Number"
+                className="py-2.5 font-poppins w-full"
+                controls={true}
+                style={{ borderColor: "#666666" }}
               />
             </Form.Item>
             {/* Apartment Size */}

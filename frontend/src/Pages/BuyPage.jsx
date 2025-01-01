@@ -9,6 +9,7 @@ import {
   DatePicker,
   TimePicker,
   message,
+  InputNumber,
 } from "antd";
 
 import home1 from "../Assets/home1.png";
@@ -140,6 +141,18 @@ const BuyPage = () => {
               <Input
                 placeholder="Email"
                 className="min-h-[50px] font-poppins place"
+              />
+            </Form.Item>
+            <Form.Item
+              name="phoneNumber"
+              className="mb-3 font-poppins"
+              rules={[{ required: true }]}
+            >
+              <InputNumber
+                placeholder="Phone Number"
+                className="py-2.5 font-poppins w-full"
+                controls={true}
+                style={{ borderColor: "#666666" }}
               />
             </Form.Item>
             {/* Apartment Size */}
