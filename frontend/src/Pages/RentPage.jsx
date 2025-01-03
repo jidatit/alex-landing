@@ -44,14 +44,13 @@ const RentPage = () => {
   // Handle Time change and format it to HH:mm
   const handleTimeChange = (time) => {
     if (time && time.isValid()) {
-      // Check if the time object is valid
-      const formatted = time.format("HH:mm");
-
+      const formatted = time.format("hh:mm A"); // 12-hour format with AM/PM
       setFormattedTime(formatted);
     } else {
       setFormattedTime(null); // Clear the time if invalid or empty
     }
   };
+
   const handleInputChange = (field, value) => {
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -332,10 +331,11 @@ const RentPage = () => {
               <TimePicker
                 placeholder="Select Tour Time"
                 className="py-3.5 w-full font-poppins"
-                format="HH:mm"
+                format="hh:mm A" // 12-hour format with AM/PM
+                use12Hours // Enable 12-hour mode
                 style={{ borderColor: "#666666" }}
                 onChange={handleTimeChange}
-                value={formattedTime ? moment(formattedTime, "HH:mm") : null} // Set value correctly
+                value={formattedTime ? moment(formattedTime, "hh:mm A") : null} // Set value correctly
               />
             </Form.Item>
             {/* Submit Button */}
