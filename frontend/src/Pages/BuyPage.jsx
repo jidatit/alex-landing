@@ -164,8 +164,9 @@ const BuyPage = () => {
                   const value = 500000 + index * 100000; // Starting from 500,000 with increment of 100,000
                   return (
                     <Option key={value} value={value}>
+                      {"$"}
                       {value.toLocaleString()}
-                      {"$ "}
+
                       {/* Formats the number with commas (e.g., 500,000) */}
                     </Option>
                   );

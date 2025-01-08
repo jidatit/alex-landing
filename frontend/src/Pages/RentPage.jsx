@@ -208,7 +208,7 @@ const RentPage = () => {
                   const value = 40000 + i * 10000;
                   return (
                     <Select.Option key={value} value={value}>
-                      {value.toLocaleString()}$
+                      ${value.toLocaleString()}
                     </Select.Option>
                   );
                 })}
