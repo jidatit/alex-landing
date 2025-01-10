@@ -63,11 +63,7 @@ const BuyPage = () => {
     }
   };
 
-  const apartmentSize = ["1BHK", "2BHK", "3BHK"];
-  const prequalified = ["1BHK", "2BHK", "3BHK"];
-  const neighbourHood = ["1BHK", "2BHK", "3BHK"];
-  const familySize = ["7", "2", "3"];
-  const neighborhoods = [
+  const [neighborhoods, setNeighborhoods] = React.useState([
     { value: "crown_heights", label: "Crown Heights" },
     { value: "flatbush", label: "Flatbush" },
     { value: "canarsie", label: "Canarsie" },
@@ -77,7 +73,24 @@ const BuyPage = () => {
     { value: "eastFlatbush", label: "East Flatbush" },
     { value: "leffertsGarden", label: "Lefferts Garden" },
     { value: "other", label: "Other" },
-  ];
+  ]);
+
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = React.useState([]);
+  const [searchText, setSearchText] = React.useState("");
+  const handleNeighborhoodChange = (value) => {
+    setSelectedNeighborhoods(value);
+
+    // Add new neighborhoods if they don't exist in the dropdown
+    const newNeighborhoods = value.filter(
+      (v) => !neighborhoods.some((n) => n.label === v)
+    );
+    if (newNeighborhoods.length > 0) {
+      setNeighborhoods([
+        ...neighborhoods,
+        ...newNeighborhoods.map((n) => ({ value: n, label: n })),
+      ]);
+    }
+  };
   return (
     <>
       {contextHolder}
@@ -177,18 +190,39 @@ const BuyPage = () => {
             {/* Neighborhood */}
             <Form.Item name="neighborhood" className="mb-3 font-poppins">
               <Select
-                placeholder="Select Neighborhood"
-                className="min-h-[50px] font-poppins"
-                style={{ borderColor: "#666666" }}
+                mode="tags"
+                placeholder="Select or Add Neighborhoods"
+                className="font-poppins"
+                style={{
+                  borderColor: "#666666",
+                  minHeight: "50px",
+                }}
+                onChange={handleNeighborhoodChange}
+                value={selectedNeighborhoods}
+                onSearch={setSearchText}
+                notFoundContent={null}
               >
+                {/* Existing neighborhood options */}
                 {neighborhoods.map((neighborhood) => (
                   <Select.Option
                     key={neighborhood.value}
-                    value={neighborhood.value}
+                    value={neighborhood.label}
                   >
                     {neighborhood.label}
                   </Select.Option>
                 ))}
+
+                {/* Custom entry option */}
+                {searchText &&
+                  !neighborhoods.some(
+                    (n) => n.label.toLowerCase() === searchText.toLowerCase()
+                  ) && (
+                    <Select.Option value={searchText} key="custom">
+                      <span className="text-blue-500">
+                        Create: {searchText}
+                      </span>
+                    </Select.Option>
+                  )}
               </Select>
             </Form.Item>
 

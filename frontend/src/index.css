@@ -92,3 +92,7 @@
   padding: "10px";
   width: 100%;
 }
+
+.ant-select-selection-wrap {
+  min-height: 48px !important ;
+}
