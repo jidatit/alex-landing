@@ -219,7 +219,7 @@ const BuyPage = () => {
                   ) && (
                     <Select.Option value={searchText} key="custom">
                       <span className="text-blue-500">
-                        Create: {searchText}
+                        Entry: {searchText}
                       </span>
                     </Select.Option>
                   )}

@@ -331,7 +331,7 @@ const RentPage = () => {
                   ) && (
                     <Select.Option value={searchText} key="custom">
                       <span className="text-blue-500">
-                        Create: {searchText} neighborHood
+                        Entry: {searchText} neighborHood
                       </span>
                     </Select.Option>
                   )}
