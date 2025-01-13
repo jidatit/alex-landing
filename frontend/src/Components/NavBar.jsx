@@ -38,20 +38,20 @@ const Navbar = () => {
       <div className="px-4 md:px-8 mx-auto">
         <div className="flex justify-between items-center py-4">
           {/* Logo/Home */}
-          <NavLink to="/" className="text-xl font-bold opacity-0">
+          <NavLink to="/" className="text-xl font-bold opacity-0 md:w-[33%]">
             Home
           </NavLink>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 focus:outline-none"
-          >
-            <MenuOutlined className="text-2xl" />
-          </button>
-
+          {/* Mobile Menu Button */}{" "}
+          <div className="md:w-auto w-full flex justify-end">
+            <button
+              onClick={toggleMenu}
+              className="md:hidden p-2 focus:outline-none"
+            >
+              <MenuOutlined className="text-2xl" />
+            </button>
+          </div>
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex gap-10 lg:gap-16 items-center">
+          <ul className="hidden md:flex gap-10 lg:gap-16 items-center md:w-[33%] justify-center">
             <li>
               <NavLink
                 to="/"
@@ -94,15 +94,17 @@ const Navbar = () => {
             </li>
           </ul>
           {/* Desktop Consultation Button */}
-          <Dropdown
-            overlay={menu}
-            trigger={["click"]}
-            className="hidden md:flex gap-x-2 items-center"
-          >
-            <button className="px-4 py-2 bg-white text-[#25A7E1] rounded-lg">
-              Book a Consultation <DownOutlined />
-            </button>
-          </Dropdown>
+          <div className="md:w-[33%] flex justify-end">
+            <Dropdown
+              overlay={menu}
+              trigger={["click"]}
+              className="hidden md:flex gap-x-2 items-center "
+            >
+              <button className="px-4 py-2 bg-white text-[#25A7E1] rounded-lg">
+                Book a Consultation <DownOutlined />
+              </button>
+            </Dropdown>
+          </div>
         </div>
 
         {/* Mobile Menu */}
