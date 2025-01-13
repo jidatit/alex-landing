@@ -109,8 +109,8 @@ const BuyPage = () => {
             className=" text-center font-poppins md:px-0 px-5"
             style={{ color: "#25A7E1" }}
           >
-            Find Your Dream Apartment—Tailored To Your Budget, Size, and
-            Location. Start Your Journey To
+            Find Your Dream Home—Tailored To Your Budget, Size, and Location.
+            Start Your Journey To
           </p>
           <p
             className="text-center mb-[36px] font-poppins"
@@ -218,9 +218,7 @@ const BuyPage = () => {
                     (n) => n.label.toLowerCase() === searchText.toLowerCase()
                   ) && (
                     <Select.Option value={searchText} key="custom">
-                      <span className="text-blue-500">
-                        Entry: {searchText}
-                      </span>
+                      <span className="text-blue-500">Entry: {searchText}</span>
                     </Select.Option>
                   )}
               </Select>

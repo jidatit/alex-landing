@@ -117,7 +117,7 @@ const SellPage = () => {
             className=" text-center px-4 font-poppins "
             style={{ color: "#25A7E1" }}
           >
-            Selling Your Apartment? List It Now And Connect With
+            Selling Your Home? List It Now And Connect With
           </p>
           <p
             className=" text-center mb-[36px] font-poppins"
@@ -218,9 +218,7 @@ const SellPage = () => {
                     (n) => n.label.toLowerCase() === searchText.toLowerCase()
                   ) && (
                     <Select.Option value={searchText} key="custom">
-                      <span className="text-blue-500">
-                        Entry: {searchText}
-                      </span>
+                      <span className="text-blue-500">Entry: {searchText}</span>
                     </Select.Option>
                   )}
               </Select>
